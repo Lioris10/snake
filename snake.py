@@ -23,8 +23,8 @@ green = (0, 255, 0)
 blue = (50, 153, 213)
 
 # Define the dimensions of the game window
-dis_width = 1000 #800
-dis_height = 800 #600
+dis_width = 1000 # 800
+dis_height = 800 # 600
 
 # Set up the display
 dis = pygame.display.set_mode((dis_width, dis_height))
@@ -42,22 +42,30 @@ font_style = pygame.font.SysFont(None, 50)
 score_font = pygame.font.SysFont(None, 35)
 
 # Function to display the score
+
+
 def Your_score(score):
     value = score_font.render("Your Score: " + str(score), True, white)
     dis.blit(value, [0, 0])
 
 # Function to draw the snake
+
+
 def our_snake(snake_block, snake_List):
     for x in snake_List:
         pygame.draw.rect(dis, black, [x[0], x[1], snake_block, snake_block])
 
 # Function to display messages
+
+
 def message(msg, color):
     mesg = font_style.render(msg, True, color)
     dis.blit(mesg, [dis_width / 6, dis_height / 3])
 
 # Main game loop function
-def gameLoop():
+
+
+def main():
     game_over = False
     game_close = False
 
@@ -91,7 +99,7 @@ def gameLoop():
                         game_over = True
                         game_close = False
                     if event.key == pygame.K_c:
-                        gameLoop()
+                        main()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -142,5 +150,7 @@ def gameLoop():
     pygame.quit()
     quit()
 
+
 # Run the game loop
-gameLoop()
+if __name__ == "__main__":
+    main()
